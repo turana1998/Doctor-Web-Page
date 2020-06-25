@@ -1,0 +1,21 @@
+﻿RewriteEngine on
+
+Options -Indexes
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+
+
+
+#ErrorDocument 404 http://localhost/myblog/error.htm
+ErrorDocument 403 http://localhost/246blog/
+
+#RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
+
+
+RewriteRule ^portfolio-category-([0-9a-zA-Z-_]+)-([0-9]+)$  portfolio-category.php?yup=$1&PKId=$2 [L,QSA]
+RewriteRule ^blog-category-([0-9a-zA-Z-_]+)-([0-9]+)$  blog-category.php?yup=$1&BKId=$2 [L,QSA]
+RewriteRule ^blog-([0-9a-zA-Z-_]+)-([0-9]+)$  blog.php?yup=$1&BId=$2 [L,QSA]
